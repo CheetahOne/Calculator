@@ -1,4 +1,4 @@
-package com.anma.calculator.component
+package com.anma.calculator.ui.core.component
 
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable

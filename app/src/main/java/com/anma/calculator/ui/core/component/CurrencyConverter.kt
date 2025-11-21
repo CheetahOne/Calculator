@@ -1,4 +1,4 @@
-package com.anma.calculator.component
+package com.anma.calculator.ui.core.component
 
 import androidx.compose.runtime.Composable
 

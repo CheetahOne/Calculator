@@ -1,4 +1,4 @@
-package com.anma.calculator.ui.theme
+package com.anma.calculator.ui.core.theme
 
 import androidx.compose.ui.graphics.Color
 
@@ -8,3 +8,6 @@ val Purple = Color(0xFFA020F0)
 val LightPurple = Color(0xFFC569FF)
 val DarkPurple = Color(0xFF3C0061)
 val White = Color(0xFFFFFFFF)
+val Grey = Color(0xFFACACAC)
+val Orange = Color(0xFFFF6900)
+val LightOrange = Color(0xFFC18F6C)

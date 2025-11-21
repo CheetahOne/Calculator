@@ -1,0 +1,26 @@
+package com.anma.calculator.Utils
+
+object Constants {
+    val AC = "ac"
+    val BRACKET = "()"
+    val PERCENTAGE = "%"
+    val DIVIDE = "/"
+    val ONE = "1"
+    val TWO = "2"
+    val THREE = "3"
+    val FOUR = "4"
+    val FIVE = "5"
+    val SIX = "6"
+    val SEVEN = "7"
+    val EIGHT = "8"
+    val NINE = "9"
+    val ZERO = "0"
+    val DOT = "."
+    val EQUAL = "="
+    val ADD = "+"
+    val SUBTRACT = "-"
+    val CLEAR = "clear"
+    val MULTIPLY = "*"
+    const val SPLASH = "splash_screen"
+    const val HOME_SCREEN = "home_screen"
+}

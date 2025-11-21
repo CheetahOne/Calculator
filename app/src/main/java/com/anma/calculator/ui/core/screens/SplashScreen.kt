@@ -1,4 +1,4 @@
-package com.anma.calculator.screens
+package com.anma.calculator.ui.core.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -15,7 +15,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.anma.calculator.R
-import com.anma.calculator.navigation.Routes
+import com.anma.calculator.Utils.Constants
 import kotlinx.coroutines.delay
 
 
@@ -24,17 +24,16 @@ fun SplashScreen(navController: NavHostController) {
 
     LaunchedEffect(key1 = true) {
         delay(3000)
-        navController.navigate(Routes.HOME_SCREEN){
-            popUpTo(Routes.SPLASH){ inclusive = true }
+        navController.navigate(Constants.HOME_SCREEN){
+            popUpTo(Constants.SPLASH){ inclusive = true }
         }
     }
 
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(
-                color = MaterialTheme.colorScheme.background
-            ),
+            .background(brush = Brush.linearGradient(colors = listOf(MaterialTheme.colorScheme.tertiary,
+            MaterialTheme.colorScheme.onSecondary))),
         contentAlignment = Alignment.Center
     ) {
         Image(painterResource(R.drawable.logo), contentDescription = "logo", Modifier.size(150.dp))
