@@ -8,30 +8,23 @@ import androidx.compose.runtime.Composable
 
 private val DarkColorScheme = darkColorScheme(
     primary = Orange,
-    secondary = Black,
+    secondary = LightBlack,
     tertiary = White,
-    onPrimary = LightPurple,
-    onSecondary = LightOrange,
-    background = LightBlack,
+    background = Black,
+    onPrimary = GREEN,
+    onSecondary = RED,
+    onTertiary = LIGHTRED,
+    surface = LIGHTGREEN
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple,
-    secondary = Black,
+    primary = Orange,
+    secondary = LightBlack,
     tertiary = White,
-    onPrimary = LightPurple,
-    onSecondary = DarkPurple,
-    background = LightBlack
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    background = White,
+    onPrimary = GREEN,
+    onSecondary = RED,
+    onTertiary = LIGHTRED
 )
 
 @Composable
@@ -41,7 +34,10 @@ fun CalculatorTheme(
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
-    val colorScheme = DarkColorScheme
+    val colorScheme = when(darkTheme){
+        true -> DarkColorScheme
+        false -> LightColorScheme
+    }
 
     MaterialTheme(
         colorScheme = colorScheme,

@@ -1,3 +1,35 @@
 <resources>
     <string name="app_name">Calculator</string>
+    <string name="TAB_UNITS">Units</string>
+    <string name="TAB_Calculator">Calculator</string>
+    <string name="TAB_Maths">Maths</string>
+    <string name="TAB_Finance">Finance</string>
+    <string name="TAB_Area">Area</string>
+    <string name="TAB_Length">Length</string>
+    <string name="TAB_Temperature">Temperature</string>
+    <string name="TAB_Time">Time</string>
+    <string name="TAB_Volume">Volume</string>
+    <string name="TAB_Weight">Weight</string>
+    <string name="TAB_Speed">Speed</string>
+    <string name="TAB_Energy">Energy</string>
+    <string name="TAB_Binary">Binary</string>
+    <string name="TAB_Pressure">Pressure</string>
+    <string name="TAB_Currency">Currency</string>
+    <string name="TAB_Fuel">Fuel</string>
+    <string name="TAB_Storage">Storage</string>
+    <string name="TAB_Current">Current</string>
+    <string name="TAB_Force">Force</string>
+    <string name="TAB_Sound">Sound</string>
+    <string name="TAB_Frequency">Frequency</string>
+    <string name="TAB_Radiation">Radiation</string>
+    <string name="TAB_Power">Power</string>
+    <string name="TAB_Flow">Flow</string>
+    <string name="TAB_Density">Density</string>
+    <string name="TAB_SurfaceTension">Surface Tension</string>
+    <string name="TAB_Resolution">Resolution</string>
+    <string name="TAB_LandArea">Land Area</string>
+    <string name="TAB_Angle">Geometry</string>
+    <string name="TAB_Torque">Torque</string>
+    <string name="TAB_DataSpeed">Data Speed</string>
+    <string name="TAB_Illumination">Illumination</string>
 </resources>

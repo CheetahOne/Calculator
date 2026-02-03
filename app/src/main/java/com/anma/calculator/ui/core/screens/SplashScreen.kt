@@ -32,8 +32,7 @@ fun SplashScreen(navController: NavHostController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(brush = Brush.linearGradient(colors = listOf(MaterialTheme.colorScheme.tertiary,
-            MaterialTheme.colorScheme.onSecondary))),
+            .background(color = MaterialTheme.colorScheme.background),
         contentAlignment = Alignment.Center
     ) {
         Image(painterResource(R.drawable.logo), contentDescription = "logo", Modifier.size(150.dp))

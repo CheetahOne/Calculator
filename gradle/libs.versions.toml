@@ -9,6 +9,11 @@ lifecycleRuntimeKtx = "2.9.4"
 activityCompose = "1.11.0"
 composeBom = "2024.09.00"
 nav_version = "2.9.6"
+composeViewModel = "2.8.0"
+hiltDagger = "2.57.1"
+kspVersion = "2.0.21-1.0.27"
+hiltNavigation = "1.2.0"
+splashScreen = "1.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -26,9 +31,16 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 compose-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "nav_version" }
+compose-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "composeViewModel" }
+hilt-dagger = { group = "com.google.dagger", name = "hilt-android", version.ref = "hiltDagger" }
+hilt-ksp = {group = "com.google.dagger", name = "hilt-compiler", version.ref = "hiltDagger"}
+hilt-navigation = {group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigation"}
+androidx-splash = {group = "androidx.core", name = "core-splashscreen", version.ref = "splashScreen"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+hilt-dagger = {id = "com.google.dagger.hilt.android", version.ref = "hiltDagger"}
+ksp = {id = "com.google.devtools.ksp", version.ref = "kspVersion"}
 

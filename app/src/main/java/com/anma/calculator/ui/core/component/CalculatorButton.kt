@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
 import com.anma.calculator.R
@@ -41,12 +42,7 @@ fun CalculatorButton(icon: Painter, backgroundColor: Color, iconName: String, on
                 shape = CircleShape,
                 clip = false
             )
-            .border(
-                width = 1.dp,
-                color = MaterialTheme.colorScheme.tertiary,
-                shape = RoundedCornerShape(20.dp)
-            )
-            .clip(RoundedCornerShape(20.dp))
+            .clip(RoundedCornerShape(100.dp))
             .background(backgroundColor)
             .padding(20.dp),
         contentAlignment = Alignment.Center
@@ -57,7 +53,8 @@ fun CalculatorButton(icon: Painter, backgroundColor: Color, iconName: String, on
             contentDescription = "Button Image",
             modifier = Modifier
                 .size(35.dp)
-                .padding(top = if (iconName == Constants.DOT) 20.dp else 0.dp)
+                .padding(top = if (iconName == Constants.DOT) 20.dp else 0.dp),
+            colorFilter = ColorFilter.tint(color = if (iconName == Constants.AC) MaterialTheme.colorScheme.onSecondary else MaterialTheme.colorScheme.tertiary)
         )
 
     }

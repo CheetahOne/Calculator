@@ -1,11 +1,11 @@
 package com.anma.calculator.ui.core.component
 
-import android.media.Image
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -20,11 +20,9 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.anma.calculator.R
 
 @Composable
 fun NavigationIcon(iconText: String, image: Painter, isActive: Boolean, onSelection: () -> Unit) {
@@ -32,29 +30,39 @@ fun NavigationIcon(iconText: String, image: Painter, isActive: Boolean, onSelect
     Box(
         modifier = Modifier
             .wrapContentSize()
-            .background(
-                color = if (isActive){
-                    MaterialTheme.colorScheme.primary
-                }else{
-                    Color.Transparent
-                }, shape = RoundedCornerShape(100.dp)
-            )
-            .padding(12.dp, 12.dp)
     ) {
 
-        Image(
-            painter = image,
-            contentDescription = "Nav Icon",
-            modifier = Modifier
-                .size(20.dp)
-                .clickable(
-                    enabled = true,
-                    onClick = {
-                        onSelection()
-                    }
-                ),
-            colorFilter = ColorFilter.tint(color = if (isActive) MaterialTheme.colorScheme.tertiary else MaterialTheme.colorScheme.onSecondary)
-        )
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.SpaceAround
+        ) {
+            Image(
+                painter = image,
+                contentDescription = "Nav Icon",
+                modifier = Modifier
+                    .size(35.dp)
+                    .background(color = if (isActive){
+                        MaterialTheme.colorScheme.background
+                    }else{
+                        Color.Transparent
+                    }, RoundedCornerShape(100.dp))
+                    .clickable(
+                        enabled = true, onClick = {
+                            onSelection()
+                        })
+                    .padding(8.dp),
+                colorFilter = ColorFilter.tint(color = if (isActive) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.tertiary))
+
+            if (isActive) {
+                Text(
+                    iconText,
+                    textAlign = TextAlign.Center,
+                    fontSize = 12.sp,
+                    color = MaterialTheme.colorScheme.onPrimary,
+                    modifier = Modifier.padding(horizontal = 5.dp)
+                )
+            }
+        }
 
     }
 

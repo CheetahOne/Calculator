@@ -5,60 +5,51 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.TileMode
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.anma.calculator.R
-import com.anma.calculator.ui.core.screens.UiState
+import com.anma.calculator.Utils.UiState
+import com.anma.calculator.data.AppResources
+import com.anma.calculator.data.CalculatorViewModel
 
 @Composable
-fun BottomNavigationBar(currentSelection: MutableState<UiState>, onSelection: (UiState) -> Unit) {
+fun BottomNavigationBar(vm: CalculatorViewModel = hiltViewModel()) {
+
+    val activeSection = vm.selectedSection.collectAsState()
+    val appResources = remember { AppResources() }
+
+
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .background(
-                brush = Brush.linearGradient(
-                    colors = listOf(
-                        MaterialTheme.colorScheme.onSecondary,
-                        MaterialTheme.colorScheme.tertiary
-                    ),
-                    start = Offset(0f, Float.POSITIVE_INFINITY),
-                    end = Offset(0f, 0f)                ),
+                color = MaterialTheme.colorScheme.secondary,
                 shape = RoundedCornerShape(20.dp, 20.dp, 0.dp, 0.dp)
             )
-            .padding(0.dp, 10.dp, 0.dp, 25.dp),
+            .padding(top = 1.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceAround
     ) {
-        NavigationIcon(
-            iconText = "Calculator",
-            image = painterResource(R.drawable.cal_tab_icon),
-            isActive = currentSelection.value == UiState.CALCULATOR,
-            onSelection = {
-                onSelection(UiState.CALCULATOR)
-            }
-        )
-        NavigationIcon(
-            iconText = "Unit Converter",
-            image = painterResource(R.drawable.scale_tab_icon),
-            isActive = currentSelection.value == UiState.UNIT_CONVERTER,
-            onSelection = {
-                onSelection(UiState.UNIT_CONVERTER)
-            })
-        NavigationIcon(
-            iconText = "Currency Converter",
-            image = painterResource(R.drawable.currency_tab_icon),
-            isActive = currentSelection.value == UiState.CURRENCY_CONVERTER,
-            onSelection = {
-                onSelection(UiState.CURRENCY_CONVERTER)
-            })
+
+        appResources.navigationOptions.forEach { item ->
+            NavigationIcon(
+                iconText = appResources.getTabName(LocalContext.current, item),
+                image = painterResource(appResources.getTabIcon(item)),
+                isActive = activeSection.value == item,
+                onSelection = {
+                    vm.updateSelection(item)
+                }
+            )
+        }
     }
 }
